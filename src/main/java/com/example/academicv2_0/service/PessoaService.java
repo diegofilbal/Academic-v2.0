@@ -1,10 +1,12 @@
 package com.example.academicv2_0.service;
 
 import com.example.academicv2_0.model.Pessoa;
+import com.example.academicv2_0.model.dto.PessoaDTO;
 import com.example.academicv2_0.repository.PessoaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,13 +22,32 @@ public class PessoaService {
     }
 
     // Método que consulta o banco e retorna todos os registros da tabela de pessoa
-    public List<Pessoa> getPessoas(){
-        return repository.findAll();
+    public List<PessoaDTO> getPessoas(){
+        List<Pessoa> listaPessoa = repository.findAll();
+        List<PessoaDTO> listaPessoaDTO = new ArrayList<>();
+
+        for (Pessoa p : listaPessoa) {
+            listaPessoaDTO.add(new PessoaDTO(p));
+        }
+
+        return listaPessoaDTO;
     }
 
-    // Método que busca um registro específico da tabela de pessoas conforme o ID recebido
+    // Métodos que buscam um registro específico da tabela de pessoas conforme o ID recebido
     public Optional<Pessoa> getPessoaPorID(Long id){
-        return repository.findById(id)/*.orElse(null)*/;
+        return repository.findById(id);
+    }
+
+    public Optional<PessoaDTO> getPessoaDTOPorID(Long id){
+        Optional<Pessoa> optPessoa = getPessoaPorID(id);
+        Optional<PessoaDTO> optPessoaDTO = Optional.empty();
+
+        if(optPessoa.isPresent()){
+            PessoaDTO pessoaDTO = new PessoaDTO(optPessoa.get());
+            optPessoaDTO = Optional.of(pessoaDTO);
+        }
+
+        return optPessoaDTO;
     }
 
     // Método que busca um registro específico da tabela de pessoas conforme o CPF recebido
