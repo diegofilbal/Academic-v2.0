@@ -2,8 +2,6 @@ package com.example.academicv2_0.controller;
 
 import com.example.academicv2_0.model.Pessoa;
 import com.example.academicv2_0.model.dto.PessoaDTO;
-import com.example.academicv2_0.repository.AlunoRepository;
-import com.example.academicv2_0.service.AlunoService;
 import com.example.academicv2_0.service.PessoaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,12 +19,10 @@ import java.util.Optional;
 public class PessoaRestController {
 
     PessoaService pessoaService;
-    AlunoService alunoService;
 
     @Autowired
-    public PessoaRestController(PessoaService pessoaService, AlunoService alunoService){
+    public PessoaRestController(PessoaService pessoaService){
         this.pessoaService = pessoaService;
-        this.alunoService = alunoService;
     }
 
     // Método que responde à requisição GET para retornar todas as pessoas cadastradas
