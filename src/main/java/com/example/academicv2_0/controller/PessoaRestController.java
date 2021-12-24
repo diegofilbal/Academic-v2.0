@@ -75,7 +75,6 @@ public class PessoaRestController {
     // Método que responde à requisição DELETE para remover o registro de uma pessoa no banco de dados
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<?> remover(@PathVariable Long id){
-        // TODO Verificar se a pessoa não tem alunos vinculados antes de removê-la
         Optional<Pessoa> pessoaBuscadaPorID = pessoaService.getPessoaPorID(id);
         if(pessoaBuscadaPorID.isEmpty()){
             return ResponseEntity.notFound().build();

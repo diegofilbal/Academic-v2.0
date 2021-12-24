@@ -1,5 +1,7 @@
 package com.example.academicv2_0.model;
 
+import com.example.academicv2_0.model.dto.AlunoDTO;
+
 import javax.persistence.*;
 
 @Entity
@@ -31,6 +33,13 @@ public class Aluno {
         this.pessoa = pessoa;
         this.matricula = matricula;
         this.anoEntrada = anoEntrada;
+    }
+
+    public Aluno(AlunoDTO alunoDTO){
+        this.pessoa = new Pessoa();
+        this.pessoa.setID(alunoDTO.getIdPessoa());
+        this.matricula = alunoDTO.getMatricula();
+        this.anoEntrada = alunoDTO.getAnoEntrada();
     }
 
     @Override

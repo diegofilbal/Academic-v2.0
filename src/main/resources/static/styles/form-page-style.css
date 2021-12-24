@@ -1,0 +1,118 @@
+body {
+    margin: 50px 300px;
+    font-family: Calibri, sans-serif;
+}
+
+header {
+    align-content: center;
+    height: 100px;
+    background-color: rgb(99, 126, 177);
+    border: 1px solid rgb(48, 89, 128);
+    box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.322);
+    margin-bottom: 50px;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+    margin: 30px 0;
+}
+
+section {
+    margin: 0 50px;
+}
+
+article {
+    margin: 25px;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+table {
+    margin-top: 25px;
+    padding: 5px;
+}
+
+td {
+    padding: 10px 15px;
+}
+
+.input-area {
+    padding: 3px 15px;
+}
+
+.left-column {
+    padding-left: 0;
+}
+
+.fa-home {
+    padding-right: 25px;
+}
+
+.hidden {
+    display: none;
+}
+
+input {
+    height: 25px;
+    border: 2px solid rgb(185, 184, 184);
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.20) inset, 0 1px 3px rgba(0, 0, 0, 0.20);
+}
+
+#matricula {
+    width: 100px;
+}
+
+#nome{
+    width: 300px;
+}
+
+#ano-ingresso {
+    width: 50px;
+}
+
+.buttons {
+    width: 65%;
+    margin: 20px auto;
+}
+
+button {
+    height: 35px;
+    width: 120px;
+    font-size: medium;
+    margin: 0 20px;
+    border: 1px solid rgb(2, 130, 189);
+    border-radius: 6px;
+    box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.30);
+    color: whitesmoke;
+}
+
+.confirm {
+    background: rgb(0, 128, 0);
+}
+
+.cancel {
+    background: red;
+}
+
+.confirm:hover{
+    background: rgb(0, 110, 0);
+}
+
+.cancel:hover{
+    background: rgb(226, 0, 0);
+}
+
+.confirm:active{
+    box-shadow: -2px -2px 4px -1px rgba(0, 0, 0, 0.40) inset, 0 1px 2px 1px rgba(0, 0, 0, 0.30);
+    background: rgb(0, 102, 0);
+}
+
+.cancel:active{
+    box-shadow: -2px -2px 4px -1px rgba(0, 0, 0, 0.40) inset, 0 1px 2px 1px rgba(0, 0, 0, 0.30);
+    background: rgb(215, 0, 0);
+}

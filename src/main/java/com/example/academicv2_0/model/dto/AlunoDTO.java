@@ -7,8 +7,9 @@ public class AlunoDTO {
     // TODO Adicionar os outros dados de Pessoa como atributos de AlunoDTO
     private Long id;
     private Long idPessoa;
+    private String nomePessoa;
     private String matricula;
-    private int anoEntrada;
+    private Integer anoEntrada;
 
     public AlunoDTO() {
     }
@@ -16,6 +17,7 @@ public class AlunoDTO {
     public AlunoDTO(Aluno aluno) {
         id = aluno.getID();
         idPessoa = aluno.getPessoa().getID();
+        nomePessoa = aluno.getPessoa().getNome();
         matricula = aluno.getMatricula();
         anoEntrada = aluno.getAnoEntrada();
     }
@@ -42,6 +44,14 @@ public class AlunoDTO {
         this.idPessoa = idPessoa;
     }
 
+    public String getNomePessoa() {
+        return nomePessoa;
+    }
+
+    public void setNomePessoa(String nomePessoa) {
+        this.nomePessoa = nomePessoa;
+    }
+
     public String getMatricula() {
         return matricula;
     }
@@ -50,11 +60,11 @@ public class AlunoDTO {
         this.matricula = matricula;
     }
 
-    public int getAnoEntrada() {
+    public Integer getAnoEntrada() {
         return anoEntrada;
     }
 
-    public void setAnoEntrada(int anoEntrada) {
+    public void setAnoEntrada(Integer anoEntrada) {
         this.anoEntrada = anoEntrada;
     }
 }

@@ -7,6 +7,8 @@ import com.example.academicv2_0.service.PessoaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
@@ -14,7 +16,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
-@RestController
+@Controller
 @RequestMapping("/alunos")
 @CrossOrigin(origins = "http://localhost:8080")
 public class AlunoRestController {
@@ -27,6 +29,34 @@ public class AlunoRestController {
         this.alunoServico = alunoServico;
         this.pessoaServico = pessoaServico;
     }
+
+    // Método que retorna a página inicial com a listagem dos alunos
+    @GetMapping(path = "/homepage")
+    public String homepage(Model model){
+        model.addAttribute("listaAlunos", alunoServico.getAlunos());
+        return "alunos/index";
+    }
+
+    // Método que retorna a página de cadastro de aluno
+    @GetMapping(path = "/cadastro")
+    public String cadastro(@ModelAttribute("aluno") AlunoDTO aluno){
+        return "alunos/form-page";
+    }
+
+    // Método de resposta à ação do botão de confirmar o cadastro de aluno
+    @PostMapping(path = "/salvar")
+    public String salvar(@ModelAttribute("aluno") AlunoDTO aluno){
+        aluno.setIdPessoa(15L);
+        Aluno novoAluno = new Aluno(aluno);
+        alunoServico.inserir(novoAluno);
+        return "redirect:/alunos/homepage";
+    }
+
+    // TODO Implementar método que responde à alteração de aluno
+/*
+    @GetMapping(path = "/alterar/{id}")
+    public String alterar(@PathVariable Long id){}
+*/
 
     // Método que responde à requisição GET para retornar todos os alunos cadastrados
     @GetMapping

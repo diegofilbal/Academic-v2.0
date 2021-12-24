@@ -1,0 +1,44 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" lang='pt-BR'>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Homepage</title>
+    <link rel='stylesheet' type="text/css" href='../../static/styles/index-style.css' th:href="@{/styles/index-style.css}">
+    <script src="https://kit.fontawesome.com/55c8d9d80c.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+<header>
+    <h1>Universidade Equipe Orbitais</h1>
+</header>
+
+<section>
+    <h2>Lista de Alunos:</h2>
+
+    <article>
+        <a th:href="@{cadastro}"><i class="far fa-plus-square"></i>Cadastrar Novo Aluno</a>
+
+        <table>
+            <tr>
+                <td class="left-column">Matrícula</td>
+                <td>Nome</td>
+                <td>Ano de Ingresso</td>
+                <td>Ações</td>
+            </tr>
+            <tr th:each="aluno : ${listaAlunos}">
+                <td th:text="${aluno.matricula}" class="left-column"></td>
+                <td th:text="${aluno.nomePessoa}"></td>
+                <td th:text="${aluno.anoEntrada}"></td>
+                <td>
+                    <a th:href="@{alterer/{id}(id=${aluno.ID})}"><i class="fas fa-edit"></i></a>
+                    <a href=""><i class="far fa-trash-alt"></i></a>
+                </td>
+                <td></td>
+            </tr>
+        </table>
+    </article>
+</section>
+</body>
+
+</html>
