@@ -8,7 +8,6 @@ import java.util.List;
 
 public class PessoaDTO {
 
-    // TODO Adicionar os outros dados de Aluno como atributos de PessoaDTO
     private Long id;
     private String nome;
     private String cpf;

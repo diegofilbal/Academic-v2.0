@@ -4,9 +4,9 @@ import com.example.academicv2_0.model.Aluno;
 
 public class AlunoDTO {
 
-    // TODO Adicionar os outros dados de Pessoa como atributos de AlunoDTO
     private Long id;
     private Long idPessoa;
+    private String cpfPessoa;
     private String nomePessoa;
     private String matricula;
     private Integer anoEntrada;
@@ -17,6 +17,7 @@ public class AlunoDTO {
     public AlunoDTO(Aluno aluno) {
         id = aluno.getID();
         idPessoa = aluno.getPessoa().getID();
+        cpfPessoa = aluno.getPessoa().getCPF();
         nomePessoa = aluno.getPessoa().getNome();
         matricula = aluno.getMatricula();
         anoEntrada = aluno.getAnoEntrada();
@@ -42,6 +43,14 @@ public class AlunoDTO {
 
     public void setIdPessoa(Long idPessoa) {
         this.idPessoa = idPessoa;
+    }
+
+    public String getCpfPessoa() {
+        return cpfPessoa;
+    }
+
+    public void setCpfPessoa(String cpfPessoa) {
+        this.cpfPessoa = cpfPessoa;
     }
 
     public String getNomePessoa() {

@@ -17,24 +17,25 @@
     <h2>Formulário para Cadastro de Novo Aluno</h2>
 
     <article>
-        <a th:href="@{homepage}"><i class="fas fa-home"></i>Página Inicial</a>
+        <a th:href="@{/alunos/homepage}"><i class="fas fa-home"></i>Página Inicial</a>
 
-        <form action="#" th:action="@{salvar}" th:object="${aluno}" method="post">
+        <form action="#" th:if="${#strings.isEmpty(aluno.idPessoa)}" th:action="@{/alunos/salvar}" th:object="${aluno}" method="post">
             <table>
                 <tr class="hidden">
+                    <td> <input type="text" th:field="*{ID}"></td>
                     <td> <input type="text" th:field="*{idPessoa}"></td>
                 </tr>
                 <tr>
                     <td>Matrícula:</td>
-                    <td class="input-area"><input type="text" name="matricula" id="matricula" th:field="*{matricula}"></td>
+                    <td class="input-area"><input type="text" th:required="required" name="matricula" class="matricula" th:field="*{matricula}"></td>
                 </tr>
                 <tr>
-                    <td>Nome:</td>
-                    <td class="input-area"><input type="text" id="nome" th:field="*{nomePessoa}"></td>
+                    <td>CPF:</td>
+                    <td class="input-area"><input type="text" th:required="required" class="cpf" th:field="*{cpfPessoa}"></td>
                 </tr>
                 <tr>
                     <td>Ano de Ingresso:</td>
-                    <td class="input-area"><input type="text" id="ano-ingresso" th:field="*{anoEntrada}"></td>
+                    <td class="input-area"><input type="text" th:required="required" class="ano-ingresso" th:field="*{anoEntrada}"></td>
                 </tr>
             </table>
             <div class="buttons">
@@ -42,6 +43,32 @@
                 <button class="cancel" type="reset">Cancelar</button>
             </div>
         </form>
+
+        <form action="#" th:unless="${#strings.isEmpty(aluno.idPessoa)}" th:action="@{/alunos/atualizar}" th:object="${aluno}" method="post">
+            <table>
+                <tr class="hidden">
+                    <td> <input type="text" th:field="*{ID}"></td>
+                    <td> <input type="text" th:field="*{idPessoa}"></td>
+                </tr>
+                <tr>
+                    <td>Matrícula:</td>
+                    <td class="input-area"><input type="text" th:required="required" name="matricula" class="matricula" th:field="*{matricula}"></td>
+                </tr>
+                <tr>
+                    <td>CPF:</td>
+                    <td class="input-area"><input type="text" th:required="required" class="cpf" th:field="*{cpfPessoa}"></td>
+                </tr>
+                <tr>
+                    <td>Ano de Ingresso:</td>
+                    <td class="input-area"><input type="text" th:required="required" class="ano-ingresso" th:field="*{anoEntrada}"></td>
+                </tr>
+            </table>
+            <div class="buttons">
+                <button class="confirm" type="submit">Confirmar</button>
+                <button class="cancel" type="reset">Cancelar</button>
+            </div>
+        </form>
+
     </article>
 
 </section>

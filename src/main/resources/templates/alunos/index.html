@@ -31,8 +31,8 @@
                 <td th:text="${aluno.nomePessoa}"></td>
                 <td th:text="${aluno.anoEntrada}"></td>
                 <td>
-                    <a th:href="@{alterer/{id}(id=${aluno.ID})}"><i class="fas fa-edit"></i></a>
-                    <a href=""><i class="far fa-trash-alt"></i></a>
+                    <a th:href="@{alterar/{id}(id=${aluno.ID})}"><i class="fas fa-edit"></i></a>
+                    <a th:href="@{remover/{id}(id=${aluno.ID})}"><i class="far fa-trash-alt"></i></a>
                 </td>
                 <td></td>
             </tr>

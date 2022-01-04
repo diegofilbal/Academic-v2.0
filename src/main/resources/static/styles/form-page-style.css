@@ -63,15 +63,15 @@ input {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.20) inset, 0 1px 3px rgba(0, 0, 0, 0.20);
 }
 
-#matricula {
+.matricula {
     width: 100px;
 }
 
-#nome{
-    width: 300px;
+.cpf {
+    width: 150px;
 }
 
-#ano-ingresso {
+.ano-ingresso {
     width: 50px;
 }
 
